@@ -104,7 +104,7 @@ jobs:
       - name: Veracode Policy Results
         id: prepare-results
         if: always()
-        uses: veracode/github-actions-integration-helper@SDEVX-11154
+        uses: veracode/github-actions-integration-helper@SDEVX-10403
         with:
           action: 'preparePolicyResults'
           token: ${{ inputs.token }}
@@ -118,7 +118,7 @@ jobs:
           filter_mitigated_flaws: ${{ inputs.filter_mitigated_flaws }}
           head_sha: ${{ inputs.sha }}
           gitRepositoryUrl: ${{ github.server_url }}/${{ inputs.source_repository }}
-          wait_for_scan_completion: false
+          # wait_for_scan_completion: false
 
   veracode-remove-sandbox:
     needs: policy_scan
